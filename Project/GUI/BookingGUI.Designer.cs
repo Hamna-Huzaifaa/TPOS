@@ -51,6 +51,9 @@ namespace Project
             this.lbl_total = new System.Windows.Forms.Label();
             this.btn_calculate = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lbl_amt = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -81,7 +84,7 @@ namespace Project
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(303, 113);
+            this.label2.Location = new System.Drawing.Point(296, 113);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 21);
             this.label2.TabIndex = 28;
@@ -144,6 +147,7 @@ namespace Project
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(186, 21);
             this.comboBox1.TabIndex = 34;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -165,6 +169,7 @@ namespace Project
             this.checkBox1.TabIndex = 36;
             this.checkBox1.Text = "Breakfast";
             this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -176,6 +181,7 @@ namespace Project
             this.checkBox2.TabIndex = 37;
             this.checkBox2.Text = "Lunch";
             this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // checkBox3
             // 
@@ -187,6 +193,7 @@ namespace Project
             this.checkBox3.TabIndex = 38;
             this.checkBox3.Text = "Dinner";
             this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // label8
             // 
@@ -232,6 +239,7 @@ namespace Project
             this.btn_book.TabIndex = 42;
             this.btn_book.Text = "Book Tour";
             this.btn_book.UseVisualStyleBackColor = false;
+            this.btn_book.Click += new System.EventHandler(this.btn_book_Click);
             // 
             // btn_reciept
             // 
@@ -243,6 +251,7 @@ namespace Project
             this.btn_reciept.TabIndex = 43;
             this.btn_reciept.Text = "Generate Reciept";
             this.btn_reciept.UseVisualStyleBackColor = false;
+            this.btn_reciept.Click += new System.EventHandler(this.btn_reciept_Click);
             // 
             // lbl_total
             // 
@@ -264,6 +273,7 @@ namespace Project
             this.btn_calculate.TabIndex = 45;
             this.btn_calculate.Text = "Calculate";
             this.btn_calculate.UseVisualStyleBackColor = false;
+            this.btn_calculate.Click += new System.EventHandler(this.btn_calculate_Click);
             // 
             // label11
             // 
@@ -275,12 +285,44 @@ namespace Project
             this.label11.TabIndex = 46;
             this.label11.Text = "All rights reserved 2022.";
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(494, 113);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(0, 21);
+            this.label5.TabIndex = 47;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(494, 114);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(192, 21);
+            this.label10.TabIndex = 48;
+            this.label10.Text = "WELCOME TO TPOS";
+            // 
+            // lbl_amt
+            // 
+            this.lbl_amt.AutoSize = true;
+            this.lbl_amt.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_amt.Location = new System.Drawing.Point(631, 336);
+            this.lbl_amt.Name = "lbl_amt";
+            this.lbl_amt.Size = new System.Drawing.Size(37, 21);
+            this.lbl_amt.TabIndex = 49;
+            this.lbl_amt.Text = "RS.";
+            // 
             // BookingGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lbl_amt);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.btn_calculate);
             this.Controls.Add(this.lbl_total);
@@ -304,6 +346,7 @@ namespace Project
             this.Controls.Add(this.pictureBox1);
             this.Name = "BookingGUI";
             this.Text = "BookingGUI";
+            this.Load += new System.EventHandler(this.BookingGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
@@ -316,11 +359,9 @@ namespace Project
 
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label lbl_tid;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label7;
@@ -335,5 +376,10 @@ namespace Project
         private System.Windows.Forms.Label lbl_total;
         private System.Windows.Forms.Button btn_calculate;
         private System.Windows.Forms.Label label11;
+        public System.Windows.Forms.Label lbl_tid;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lbl_amt;
     }
 }

@@ -30,7 +30,7 @@ namespace Project
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminGUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -106,6 +106,10 @@ namespace Project
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dgv_bookings = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
+            this.cmb_hotel = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.cmb_meal = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -198,15 +202,15 @@ namespace Project
             // 
             this.dgv_tours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_tours.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tours.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tours.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_tours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_tours.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tours.Location = new System.Drawing.Point(3, 3);
@@ -221,6 +225,10 @@ namespace Project
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmb_meal);
+            this.tabPage2.Controls.Add(this.label35);
+            this.tabPage2.Controls.Add(this.cmb_hotel);
+            this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Controls.Add(this.cmb_pkg);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.btn_post);
@@ -247,7 +255,7 @@ namespace Project
             this.cmb_pkg.FormattingEnabled = true;
             this.cmb_pkg.Items.AddRange(new object[] {
             ""});
-            this.cmb_pkg.Location = new System.Drawing.Point(403, 93);
+            this.cmb_pkg.Location = new System.Drawing.Point(403, 91);
             this.cmb_pkg.Name = "cmb_pkg";
             this.cmb_pkg.Size = new System.Drawing.Size(285, 23);
             this.cmb_pkg.TabIndex = 42;
@@ -256,7 +264,7 @@ namespace Project
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(402, 69);
+            this.label8.Location = new System.Drawing.Point(402, 67);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 16);
             this.label8.TabIndex = 41;
@@ -266,7 +274,7 @@ namespace Project
             // 
             this.btn_post.BackColor = System.Drawing.Color.Yellow;
             this.btn_post.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_post.Location = new System.Drawing.Point(619, 148);
+            this.btn_post.Location = new System.Drawing.Point(706, 221);
             this.btn_post.Name = "btn_post";
             this.btn_post.Size = new System.Drawing.Size(67, 28);
             this.btn_post.TabIndex = 40;
@@ -944,6 +952,48 @@ namespace Project
             this.label5.TabIndex = 14;
             this.label5.Text = "All rights reserved 2022.";
             // 
+            // cmb_hotel
+            // 
+            this.cmb_hotel.FormattingEnabled = true;
+            this.cmb_hotel.Items.AddRange(new object[] {
+            ""});
+            this.cmb_hotel.Location = new System.Drawing.Point(403, 151);
+            this.cmb_hotel.Name = "cmb_hotel";
+            this.cmb_hotel.Size = new System.Drawing.Size(285, 23);
+            this.cmb_hotel.TabIndex = 44;
+            this.cmb_hotel.SelectedIndexChanged += new System.EventHandler(this.cmb_hotel_SelectedIndexChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(402, 127);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(76, 16);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "Select Hotel";
+            // 
+            // cmb_meal
+            // 
+            this.cmb_meal.FormattingEnabled = true;
+            this.cmb_meal.Items.AddRange(new object[] {
+            ""});
+            this.cmb_meal.Location = new System.Drawing.Point(403, 205);
+            this.cmb_meal.Name = "cmb_meal";
+            this.cmb_meal.Size = new System.Drawing.Size(285, 23);
+            this.cmb_meal.TabIndex = 46;
+            this.cmb_meal.SelectedIndexChanged += new System.EventHandler(this.cmb_meal_SelectedIndexChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(402, 181);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(74, 16);
+            this.label35.TabIndex = 45;
+            this.label35.Text = "Select Meal";
+            // 
             // AdminGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1062,5 +1112,9 @@ namespace Project
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.DataGridView dgv_bookings;
+        private System.Windows.Forms.ComboBox cmb_hotel;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox cmb_meal;
+        private System.Windows.Forms.Label label35;
     }
 }

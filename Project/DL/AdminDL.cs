@@ -137,7 +137,7 @@ namespace Project.DL
             {
                 db.Con.Open();
                 //string queryString = "INSERT INTO MyUser VALUES('"+ud.UserID+"','"+ud.Password+"','"+ud.Role+"','active');" ;
-                string queryString1 = "INSERT INTO tour VALUES( @id, @name ,@description ,@bid, @pid);";
+                string queryString1 = "INSERT INTO tour VALUES( @id, @name ,@description ,@bid, @pid,@hid);";
 
                 SqlCommand com = new SqlCommand(queryString1, db.Con);
                 com.Parameters.AddWithValue("@id", ud.TourID);
@@ -145,6 +145,8 @@ namespace Project.DL
                 com.Parameters.AddWithValue("@description", ud.Description);
                 com.Parameters.AddWithValue("@bid", ud.BusID);
                 com.Parameters.AddWithValue("@pid", ud.PkgID);
+                com.Parameters.AddWithValue("@hid", ud.HotelID);
+                //com.Parameters.AddWithValue("@mid", ud.MealID);
 
 
                 int rowAffected = com.ExecuteNonQuery();
@@ -270,5 +272,27 @@ namespace Project.DL
                 db.Con.Close();
             }
         }
+            public DataTable getBookingsFromDB()
+            {
+                DataTable dt = new DataTable();
+                try
+                {
+                    db.Con.Open();
+                    string queryString = "SELECT * FROM booking";
+                    SqlCommand com = new SqlCommand(queryString, db.Con);
+
+                    SqlDataReader reader = com.ExecuteReader();
+                    dt.Load(reader);
+                    return dt;
+                }
+                catch (SqlException ex)
+                {
+                    throw ex;
+                }
+                finally
+                {
+                    db.Con.Close();
+                }
+            }
     }
 }

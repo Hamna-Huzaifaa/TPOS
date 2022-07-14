@@ -30,7 +30,6 @@ namespace Project
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RecieptGUI));
-            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lbl_bid = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@ namespace Project
             this.label10 = new System.Windows.Forms.Label();
             this.lbl_tid = new System.Windows.Forms.Label();
             this.lbl_uid = new System.Windows.Forms.Label();
-            this.lbl_date = new System.Windows.Forms.Label();
             this.lbl_seats = new System.Windows.Forms.Label();
             this.lbl_amt = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -54,23 +52,12 @@ namespace Project
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.SystemColors.Control;
-            this.label9.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(297, 258);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(40, 16);
-            this.label9.TabIndex = 61;
-            this.label9.Text = "Date";
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.Control;
             this.label7.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(297, 229);
+            this.label7.Location = new System.Drawing.Point(297, 255);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(58, 16);
             this.label7.TabIndex = 56;
@@ -81,7 +68,7 @@ namespace Project
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Control;
             this.label6.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(297, 198);
+            this.label6.Location = new System.Drawing.Point(297, 224);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(58, 16);
             this.label6.TabIndex = 54;
@@ -92,18 +79,19 @@ namespace Project
             this.lbl_bid.AutoSize = true;
             this.lbl_bid.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_bid.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_bid.Location = new System.Drawing.Point(456, 170);
+            this.lbl_bid.Location = new System.Drawing.Point(456, 196);
             this.lbl_bid.Name = "lbl_bid";
             this.lbl_bid.Size = new System.Drawing.Size(32, 16);
             this.lbl_bid.TabIndex = 53;
             this.lbl_bid.Text = "123";
+            this.lbl_bid.Click += new System.EventHandler(this.lbl_bid_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Control;
             this.label4.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(297, 170);
+            this.label4.Location = new System.Drawing.Point(297, 196);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(78, 16);
             this.label4.TabIndex = 52;
@@ -188,7 +176,7 @@ namespace Project
             this.lbl_tid.AutoSize = true;
             this.lbl_tid.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_tid.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_tid.Location = new System.Drawing.Point(456, 198);
+            this.lbl_tid.Location = new System.Drawing.Point(456, 224);
             this.lbl_tid.Name = "lbl_tid";
             this.lbl_tid.Size = new System.Drawing.Size(32, 16);
             this.lbl_tid.TabIndex = 64;
@@ -199,22 +187,11 @@ namespace Project
             this.lbl_uid.AutoSize = true;
             this.lbl_uid.BackColor = System.Drawing.SystemColors.Control;
             this.lbl_uid.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_uid.Location = new System.Drawing.Point(456, 229);
+            this.lbl_uid.Location = new System.Drawing.Point(456, 255);
             this.lbl_uid.Name = "lbl_uid";
             this.lbl_uid.Size = new System.Drawing.Size(32, 16);
             this.lbl_uid.TabIndex = 65;
             this.lbl_uid.Text = "123";
-            // 
-            // lbl_date
-            // 
-            this.lbl_date.AutoSize = true;
-            this.lbl_date.BackColor = System.Drawing.SystemColors.Control;
-            this.lbl_date.Font = new System.Drawing.Font("MS UI Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_date.Location = new System.Drawing.Point(456, 258);
-            this.lbl_date.Name = "lbl_date";
-            this.lbl_date.Size = new System.Drawing.Size(32, 16);
-            this.lbl_date.TabIndex = 66;
-            this.lbl_date.Text = "123";
             // 
             // lbl_seats
             // 
@@ -242,9 +219,9 @@ namespace Project
             // 
             this.pictureBox3.BackColor = System.Drawing.SystemColors.Control;
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(253, 130);
+            this.pictureBox3.Location = new System.Drawing.Point(204, 130);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(289, 308);
+            this.pictureBox3.Size = new System.Drawing.Size(401, 308);
             this.pictureBox3.TabIndex = 69;
             this.pictureBox3.TabStop = false;
             // 
@@ -268,12 +245,10 @@ namespace Project
             this.Controls.Add(this.label16);
             this.Controls.Add(this.lbl_amt);
             this.Controls.Add(this.lbl_seats);
-            this.Controls.Add(this.lbl_date);
             this.Controls.Add(this.lbl_uid);
             this.Controls.Add(this.lbl_tid);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lbl_bid);
@@ -286,6 +261,7 @@ namespace Project
             this.Controls.Add(this.pictureBox3);
             this.Name = "RecieptGUI";
             this.Text = "RecieptGUI";
+            this.Load += new System.EventHandler(this.RecieptGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -295,7 +271,6 @@ namespace Project
         }
 
         #endregion
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbl_bid;
@@ -309,7 +284,6 @@ namespace Project
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label lbl_tid;
         private System.Windows.Forms.Label lbl_uid;
-        private System.Windows.Forms.Label lbl_date;
         private System.Windows.Forms.Label lbl_seats;
         private System.Windows.Forms.Label lbl_amt;
         private System.Windows.Forms.PictureBox pictureBox3;

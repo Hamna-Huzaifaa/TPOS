@@ -19,6 +19,7 @@ namespace Project
         private SignupBL signupBL;
         private UserDTO signupDTO;
         private UserGUI gui;
+        //public bool login = false;
         
         public LoginSignupGUI()
         {
@@ -39,7 +40,7 @@ namespace Project
                 signupDTO.Email = txt_Semail.Text;
                 signupBL.VerifyUser(signupDTO);
                 MessageBox.Show("Your Account has been created successfully!!!", "Account Creation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                gui.ShowDialog();
+                //this.ShowDialog();
             }
         }
 
@@ -49,7 +50,9 @@ namespace Project
             {
                 lgDTO.Username = txt_Username.Text;
                 lgDTO.Password = txt_Password.Text;
+                
                 lgBL.VerifyUser(lgDTO).ShowDialog();
+                
             }
         }
 

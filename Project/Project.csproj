@@ -62,12 +62,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AdminBL.cs" />
+    <Compile Include="BL\BookingBL.cs" />
     <Compile Include="BL\LoginBL.cs" />
     <Compile Include="BL\SignupBL.cs" />
+    <Compile Include="BL\UserBL.cs" />
+    <Compile Include="DL\BookingDL.cs" />
     <Compile Include="DL\DBconnection.cs" />
     <Compile Include="DL\AdminDL.cs" />
     <Compile Include="DL\LoginDL.cs" />
     <Compile Include="DL\SignupDL.cs" />
+    <Compile Include="DL\UserDL.cs" />
+    <Compile Include="DTO\BookingDTO.cs" />
     <Compile Include="DTO\BusDTO.cs" />
     <Compile Include="DTO\HotelDTO.cs" />
     <Compile Include="DTO\LoginDTO.cs" />

@@ -30,6 +30,7 @@ namespace Project
         private bool viewBus = false;
         private bool viewPkg = false;
         private bool viewTour = false;
+        private bool viewBooking = false;
 
         public AdminGUI(UserDTO admin)
         {
@@ -58,7 +59,28 @@ namespace Project
 
         private void tabPage2_Click(object sender, EventArgs e)
         {
+            try
+            {
+                db.Con.Open();
+                string queryString = "SELECT hid FROM hotel ";
+                SqlCommand comm = new SqlCommand(queryString, db.Con);
+                SqlDataReader reader1;
+                reader1 = comm.ExecuteReader();
+                while (reader1.Read())
+                {
+                    cmb_hotel.Items.Add(reader1[0].ToString());
+                }
 
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+
+            finally
+            {
+                db.Con.Close();
+            }
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -98,6 +120,8 @@ namespace Project
             viewPkg = true;
             dgv_tours.DataSource = bl.GetTours();
             viewTour = true;
+            dgv_bookings.DataSource = bl.GetBookings();
+            viewBooking = true;
         }
 
         private void btn_badd_Click(object sender, EventArgs e)
@@ -226,6 +250,37 @@ namespace Project
         private void dgv_tours_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void cmb_hotel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void cmb_meal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //try
+            //{
+            //    db.Con.Open();
+            //    string queryString = "SELECT mid FROM meal ";
+            //    SqlCommand comm = new SqlCommand(queryString, db.Con);
+            //    SqlDataReader reader1;
+            //    reader1 = comm.ExecuteReader();
+            //    while (reader1.Read())
+            //    {
+            //        cmb_meal.Items.Add(reader1[0].ToString());
+            //    }
+
+            //}
+            //catch (SqlException ex)
+            //{
+            //    throw ex;
+            //}
+
+            //finally
+            //{
+            //    db.Con.Close();
+            //}
         }
     }
 }

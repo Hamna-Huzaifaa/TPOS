@@ -13,11 +13,11 @@ namespace Project.BL
     class LoginBL
     {
         private LoginDL lgDL;
-        
+        //private UserGUI gui;
         public LoginBL()
         {
             lgDL = new LoginDL();
-           
+           // gui = new UserGUI();
         }
         public Form VerifyUser(LoginDTO lg)
         {
@@ -29,10 +29,12 @@ namespace Project.BL
             }
             else if (ud.Role == "admin")
             {
+                
                 return new AdminGUI(ud);
             }
             else if (ud.Role == "user")
             {
+                ud.Login = true;
                 return new UserGUI(ud);
             }
            

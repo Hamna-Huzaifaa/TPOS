@@ -38,6 +38,7 @@ namespace Project
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.btn_book = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -60,8 +61,9 @@ namespace Project
             this.dataGridView1.GridColor = System.Drawing.Color.Turquoise;
             this.dataGridView1.Location = new System.Drawing.Point(13, 145);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(776, 279);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 233);
             this.dataGridView1.TabIndex = 32;
+            this.dataGridView1.SelectionChanged += new System.EventHandler(this.dataGridView1_SelectionChanged);
             // 
             // btn_loginSignup
             // 
@@ -126,12 +128,26 @@ namespace Project
             this.pictureBox4.TabIndex = 26;
             this.pictureBox4.TabStop = false;
             // 
+            // btn_book
+            // 
+            this.btn_book.BackColor = System.Drawing.Color.Yellow;
+            this.btn_book.Enabled = false;
+            this.btn_book.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_book.Location = new System.Drawing.Point(707, 396);
+            this.btn_book.Name = "btn_book";
+            this.btn_book.Size = new System.Drawing.Size(82, 33);
+            this.btn_book.TabIndex = 34;
+            this.btn_book.Text = "Book";
+            this.btn_book.UseVisualStyleBackColor = false;
+            this.btn_book.Click += new System.EventHandler(this.btn_book_Click);
+            // 
             // UserGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(801, 450);
+            this.Controls.Add(this.btn_book);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.btn_loginSignup);
@@ -142,6 +158,7 @@ namespace Project
             this.Controls.Add(this.pictureBox4);
             this.Name = "UserGUI";
             this.Text = "Login";
+            this.Load += new System.EventHandler(this.User_load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
@@ -160,6 +177,7 @@ namespace Project
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Button btn_book;
     }
 }
 

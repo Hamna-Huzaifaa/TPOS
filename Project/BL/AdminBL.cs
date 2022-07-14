@@ -63,6 +63,11 @@ namespace Project.BL
             return dl.getToursFromDB();
 
         }
+        public DataTable GetBookings()
+        {
+            return dl.getBookingsFromDB();
+
+        }
 
         public void verifyTour(TourDTO tdto)
         {
