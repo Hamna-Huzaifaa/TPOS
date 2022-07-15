@@ -15,10 +15,12 @@ namespace Project
     public partial class RecieptGUI : Form
     {
         private BookingBL bl;
+       // private BookingGUI gui;
         public RecieptGUI()
         {
             InitializeComponent();
             bl = new BookingBL();
+            //gui = new BookingGUI();
         }
 
         private void lbl_bid_Click(object sender, EventArgs e)
@@ -29,13 +31,22 @@ namespace Project
 
         private void RecieptGUI_Load(object sender, EventArgs e)
         {
-            BookingDTO dto = new BookingDTO();
-            dto = bl.getReciept();
-            lbl_bid.Text = dto.Bookingid;
-            lbl_tid.Text = dto.Tourid;
-            lbl_uid.Text = dto.Userid;
-            lbl_seats.Text = dto.Seats.ToString();
-            lbl_amt.Text = dto.Paymentid;
+            
+        }
+
+        private void RecieptGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show("Are you sure you want to exit!!!", "Form is closing", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+
+                {
+                    e.Cancel = true;
+                }
+                else
+                    this.Owner.Show();
+
+            }
         }
     }
 }

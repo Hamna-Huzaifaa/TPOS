@@ -116,6 +116,7 @@ namespace Project
             this.txt_Password.Font = new System.Drawing.Font("Rockwell", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_Password.Location = new System.Drawing.Point(338, 164);
             this.txt_Password.Name = "txt_Password";
+            this.txt_Password.PasswordChar = '*';
             this.txt_Password.Size = new System.Drawing.Size(224, 26);
             this.txt_Password.TabIndex = 14;
             // 
@@ -304,7 +305,7 @@ namespace Project
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "LoginSignupGUI";
-            this.Text = "UserGUI";
+            this.Text = "Login";
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();

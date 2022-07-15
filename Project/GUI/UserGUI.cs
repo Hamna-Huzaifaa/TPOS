@@ -33,7 +33,7 @@ namespace Project
         {
             InitializeComponent();
             bl = new UserBL();
-            gui = new BookingGUI();           
+            gui = new BookingGUI();
             dto = ud;
         }
 
@@ -45,18 +45,29 @@ namespace Project
 
         private void btn_loginSignup_Click(object sender, EventArgs e)
         {
-
-
+            //this.Hide();
+            //Owner.Show();
+            ////Owner.Visible = true;
+            LoginSignupGUI form = new LoginSignupGUI();
+            form.ShowDialog();
+            this.Hide();
         }
 
         private void User_load(object sender, EventArgs e)
         {
-            if (dto.Login == true)
+            try
             {
-                btn_loginSignup.Text = dto.Name;
+                if (dto.Login == true)
+                {
+                    btn_loginSignup.Text = dto.Name;
+                    dataGridView1.DataSource = bl.Get_Tours();
+                }
+            }
+            catch(Exception ex)
+            {
                 dataGridView1.DataSource = bl.Get_Tours();
             }
-            else
+            finally
             {
                 dataGridView1.DataSource = bl.Get_Tours();
             }
@@ -68,37 +79,42 @@ namespace Project
 
         private void btn_book_Click(object sender, EventArgs e)
         {
-            BookingDTO reqDTO = new BookingDTO();          
-            reqDTO.Tourid = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            reqDTO.Userid = dto.Name;
-            gui.label10.Text = reqDTO.Userid;
-            gui.lbl_tid.Text = reqDTO.Tourid;
-            gui.ShowDialog();
-            //reqDTO.StdID = studentDTO.UserID;
-            //reqDTO.ReqType = "add";
-
-
-            //if (MessageBox.Show("Are you really want to add this course?", "Adding course section " + reqDTO.SecID, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
-            //{
-            //    try
-            //    {
-            //        stdBL.RegisterCourseRequest(reqDTO);
-            //        MessageBox.Show("Add Course request submitted Succesfullly");
-            //    }
-            //    catch (SqlException ex)
-            //    {
-            //        MessageBox.Show("Course has not been added");
-
-            //    }
-            //    dgv_ViewOffered.DataSource = stdBL.GetOfferedCourses(studentDTO.UserID);
-            //    btn_Add_Course.Enabled = false;
-
-            //}
+            try
+            {
+                BookingDTO reqDTO = new BookingDTO();
+                reqDTO.Tourid = dataGridView1.CurrentRow.Cells[1].Value.ToString();
+                reqDTO.Userid = dto.Name;
+                gui.label10.Text = reqDTO.Userid;
+                gui.lbl_tid.Text = reqDTO.Tourid;
+                gui.Show(this);
+                this.Hide();
+            }
+            catch
+            {
+                MessageBox.Show("Please Login / SignUp", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
+            
         }
 
         private void dataGridView1_SelectionChanged(object sender, EventArgs e)
         {
             btn_book.Enabled = true;
+        }
+
+        private void UserGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //if (e.CloseReason == CloseReason.UserClosing)
+            //{
+            //    if (MessageBox.Show("Are you sure you want to exit!!!", "Form is closing", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+
+            //    {
+            //        e.Cancel = true;
+            //    }
+            //    else
+            //        this.Owner.Show();
+
+            //}
         }
     }
 }

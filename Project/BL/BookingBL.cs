@@ -61,9 +61,9 @@ namespace Project.BL
             return dl.getHotelAmountFromDB(id); ;
         }
 
-        public BookingDTO getReciept()
+        public BookingDTO getReciept(BookingDTO dto)
         {
-            return dl.getRecieptFromDB();
+            return dl.getRecieptFromDB(dto);
         }
     }
 }

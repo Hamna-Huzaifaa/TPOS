@@ -346,6 +346,7 @@ namespace Project
             this.Controls.Add(this.pictureBox1);
             this.Name = "BookingGUI";
             this.Text = "BookingGUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BookingGUI_FormClosing);
             this.Load += new System.EventHandler(this.BookingGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

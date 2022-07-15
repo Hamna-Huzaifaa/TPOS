@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project.DL
 {
@@ -36,10 +37,11 @@ namespace Project.DL
 
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Hotel Created Successfully", "Hotel Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -61,15 +63,13 @@ namespace Project.DL
                 com.Parameters.AddWithValue("@id", ud.BusID);
                 com.Parameters.AddWithValue("@capacity", ud.Capacity);
                 com.Parameters.AddWithValue("@datetime", ud.DateTime);
-                
-
-
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Bus Created Successfully", "Bus Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -94,10 +94,11 @@ namespace Project.DL
 
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Meal Created Successfully", "Meal Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -121,10 +122,11 @@ namespace Project.DL
                 
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Package Created Successfully", "Package Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -150,10 +152,11 @@ namespace Project.DL
 
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Tour Created Successfully", "Tour Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {
@@ -294,5 +297,243 @@ namespace Project.DL
                     db.Con.Close();
                 }
             }
+        public void EdithotelinDB(HotelDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"UPDATE hotel SET  hname = @hname, place = @place, type = @type, price = @price where hid = @hid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@hid", dto.HotelID);
+                com.Parameters.AddWithValue("@hname", dto.Name);
+                com.Parameters.AddWithValue("@place", dto.Place);
+                com.Parameters.AddWithValue("@type", dto.Type);
+                com.Parameters.AddWithValue("@price", dto.Price);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Edit Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+
+        public void EditbusinDB(BusDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"UPDATE bus SET  capacity = @capacity, datetime = @datetime where bid = @bid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@bid", dto.BusID);
+                com.Parameters.AddWithValue("@capacity", dto.Capacity);
+                com.Parameters.AddWithValue("@datetime", dto.DateTime);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Edit Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void EditmealinDB(MealDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"UPDATE meal SET  type = @type, description = @description, price=@price where mid = @mid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@mid", dto.MealID);
+                com.Parameters.AddWithValue("@type", dto.Type);
+                com.Parameters.AddWithValue("@description", dto.Description);
+                com.Parameters.AddWithValue("@price", dto.Price);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Edit Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void EditpkginDB(PackageDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"UPDATE package SET  ptype = @ptype, price=@price, place = @place where pid = @pid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@pid", dto.PackageID);
+                com.Parameters.AddWithValue("@ptype", dto.Type);
+                com.Parameters.AddWithValue("@price", dto.Price);
+                com.Parameters.AddWithValue("@place", dto.Place);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Edit Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void EditTourinDB(TourDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"UPDATE tour SET  name=@name, description = @description, bid=@bid, pid=@pid, hid=@hid where tid = @tid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@tid", dto.TourID);
+                com.Parameters.AddWithValue("@name", dto.Name);
+                com.Parameters.AddWithValue("@description", dto.Description);
+                com.Parameters.AddWithValue("@bid", dto.BusID);
+                com.Parameters.AddWithValue("@pid", dto.PkgID);
+                com.Parameters.AddWithValue("@hid", dto.HotelID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Edit Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void DelhotelinDB(HotelDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"Delete FROM hotel WHERE hid = @hid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@hid", dto.HotelID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void DelbusinDB(BusDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"Delete FROM bus WHERE bid = @bid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@bid", dto.BusID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void DelmealinDB(MealDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"Delete FROM meal WHERE mid = @mid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@mid", dto.MealID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void DelpkginDB(PackageDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"Delete FROM package WHERE pid = @pid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@pid", dto.PackageID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
+        public void DelToursinDB(TourDTO dto)
+        {
+            try
+            {
+                db.Con.Open();
+                string queryString = @"Delete FROM tour WHERE tid = @tid";
+                SqlCommand com = new SqlCommand(queryString, db.Con);
+                com.Parameters.AddWithValue("@tid", dto.TourID);
+
+                com.CommandText = queryString;
+                int noOfRowsAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Record Deleted Successfully", "Record Edit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                db.Con.Close();
+            }
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project.DL
 {
@@ -33,10 +34,11 @@ namespace Project.DL
                 
 
                 int rowAffected = com.ExecuteNonQuery();
+                MessageBox.Show("Account Created Successfully", "Account Created", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException ex)
             {
-                throw ex;
+                MessageBox.Show(ex.Message);
             }
             finally
             {

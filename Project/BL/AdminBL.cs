@@ -73,5 +73,49 @@ namespace Project.BL
         {
             dl.CreateTourInDB(tdto);
         }
+
+        public void Edithotel(HotelDTO dto)
+        {
+            dl.EdithotelinDB(dto);
+        }
+        public void EditBus(BusDTO dto)
+        {
+            dl.EditbusinDB(dto);
+        }
+
+        public void EditMeal(MealDTO dto)
+        {
+            dl.EditmealinDB(dto);
+        }
+        public void EditPkg(PackageDTO dto)
+        {
+            dl.EditpkginDB(dto);
+        }
+        public void EditTour(TourDTO dto)
+        {
+            dl.EditTourinDB(dto);
+        }
+        public void Delhotel(HotelDTO dto)
+        {
+            dl.DelhotelinDB(dto);
+        }
+        public void Delbus(BusDTO dto)
+        {
+            dl.DelbusinDB(dto);
+        }
+        public void Delmeal(MealDTO dto)
+        {
+            dl.DelmealinDB(dto);
+        }
+        public void Delpkg(PackageDTO dto)
+        {
+            dl.DelpkginDB(dto);
+        }
+        public void Deltour(TourDTO dto)
+        {
+            dl.DelToursinDB(dto);
+        }
     }
+
+
 }

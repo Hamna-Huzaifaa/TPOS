@@ -30,15 +30,19 @@ namespace Project
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminGUI));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.btn_tedit = new System.Windows.Forms.Button();
+            this.btn_tdel = new System.Windows.Forms.Button();
             this.dgv_tours = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmb_hotel = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
             this.cmb_pkg = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btn_post = new System.Windows.Forms.Button();
@@ -52,6 +56,8 @@ namespace Project
             this.txt_tid = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btn_hdel = new System.Windows.Forms.Button();
+            this.btn_hedit = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.cmb_hprice = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
@@ -67,6 +73,8 @@ namespace Project
             this.txt_hid = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.btn_bdel = new System.Windows.Forms.Button();
+            this.btn_bedit = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
             this.dgv_bus = new System.Windows.Forms.DataGridView();
             this.btn_badd = new System.Windows.Forms.Button();
@@ -78,6 +86,8 @@ namespace Project
             this.txt_bid = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.btn_mdel = new System.Windows.Forms.Button();
+            this.btn_medit = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.txt_mprice = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -91,6 +101,8 @@ namespace Project
             this.txt_mid = new System.Windows.Forms.TextBox();
             this.label25 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.btn_pdel = new System.Windows.Forms.Button();
+            this.btn_pedit = new System.Windows.Forms.Button();
             this.label28 = new System.Windows.Forms.Label();
             this.txt_pprice = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
@@ -106,10 +118,6 @@ namespace Project
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.dgv_bookings = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
-            this.cmb_hotel = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.cmb_meal = new System.Windows.Forms.ComboBox();
-            this.label35 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -189,6 +197,8 @@ namespace Project
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.btn_tedit);
+            this.tabPage1.Controls.Add(this.btn_tdel);
             this.tabPage1.Controls.Add(this.dgv_tours);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
@@ -197,36 +207,58 @@ namespace Project
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "All Tours";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // btn_tedit
+            // 
+            this.btn_tedit.BackColor = System.Drawing.Color.Yellow;
+            this.btn_tedit.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tedit.Location = new System.Drawing.Point(633, 221);
+            this.btn_tedit.Name = "btn_tedit";
+            this.btn_tedit.Size = new System.Drawing.Size(67, 28);
+            this.btn_tedit.TabIndex = 50;
+            this.btn_tedit.Text = "Edit";
+            this.btn_tedit.UseVisualStyleBackColor = false;
+            this.btn_tedit.Click += new System.EventHandler(this.btn_tedit_Click_1);
+            // 
+            // btn_tdel
+            // 
+            this.btn_tdel.BackColor = System.Drawing.Color.Yellow;
+            this.btn_tdel.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_tdel.Location = new System.Drawing.Point(706, 221);
+            this.btn_tdel.Name = "btn_tdel";
+            this.btn_tdel.Size = new System.Drawing.Size(67, 28);
+            this.btn_tdel.TabIndex = 49;
+            this.btn_tdel.Text = "Delete";
+            this.btn_tdel.UseVisualStyleBackColor = false;
+            this.btn_tdel.Click += new System.EventHandler(this.btn_tdel_Click_1);
             // 
             // dgv_tours
             // 
             this.dgv_tours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
             this.dgv_tours.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(3);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_tours.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(3);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_tours.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_tours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_tours.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgv_tours.Location = new System.Drawing.Point(3, 3);
             this.dgv_tours.Margin = new System.Windows.Forms.Padding(5, 8, 5, 8);
             this.dgv_tours.Name = "dgv_tours";
             this.dgv_tours.ReadOnly = true;
             this.dgv_tours.RowHeadersWidth = 70;
             this.dgv_tours.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.dgv_tours.Size = new System.Drawing.Size(773, 249);
+            this.dgv_tours.Size = new System.Drawing.Size(776, 204);
             this.dgv_tours.TabIndex = 0;
             this.dgv_tours.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_tours_CellContentClick);
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.cmb_meal);
-            this.tabPage2.Controls.Add(this.label35);
             this.tabPage2.Controls.Add(this.cmb_hotel);
             this.tabPage2.Controls.Add(this.label32);
             this.tabPage2.Controls.Add(this.cmb_pkg);
@@ -250,31 +282,54 @@ namespace Project
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // cmb_hotel
+            // 
+            this.cmb_hotel.FormattingEnabled = true;
+            this.cmb_hotel.Items.AddRange(new object[] {
+            ""});
+            this.cmb_hotel.Location = new System.Drawing.Point(498, 73);
+            this.cmb_hotel.Name = "cmb_hotel";
+            this.cmb_hotel.Size = new System.Drawing.Size(260, 23);
+            this.cmb_hotel.TabIndex = 44;
+            this.cmb_hotel.SelectedIndexChanged += new System.EventHandler(this.cmb_hotel_SelectedIndexChanged);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.Location = new System.Drawing.Point(401, 75);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(76, 16);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "Select Hotel";
+            // 
             // cmb_pkg
             // 
             this.cmb_pkg.FormattingEnabled = true;
             this.cmb_pkg.Items.AddRange(new object[] {
             ""});
-            this.cmb_pkg.Location = new System.Drawing.Point(403, 91);
+            this.cmb_pkg.Location = new System.Drawing.Point(498, 40);
             this.cmb_pkg.Name = "cmb_pkg";
-            this.cmb_pkg.Size = new System.Drawing.Size(285, 23);
+            this.cmb_pkg.Size = new System.Drawing.Size(260, 23);
             this.cmb_pkg.TabIndex = 42;
+            this.cmb_pkg.SelectedIndexChanged += new System.EventHandler(this.cmb_pkg_SelectedIndexChanged);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(402, 67);
+            this.label8.Location = new System.Drawing.Point(400, 44);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 16);
             this.label8.TabIndex = 41;
             this.label8.Text = "Select Package";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // btn_post
             // 
             this.btn_post.BackColor = System.Drawing.Color.Yellow;
             this.btn_post.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_post.Location = new System.Drawing.Point(706, 221);
+            this.btn_post.Location = new System.Drawing.Point(691, 163);
             this.btn_post.Name = "btn_post";
             this.btn_post.Size = new System.Drawing.Size(67, 28);
             this.btn_post.TabIndex = 40;
@@ -287,9 +342,9 @@ namespace Project
             this.cmb_bus.FormattingEnabled = true;
             this.cmb_bus.Items.AddRange(new object[] {
             ""});
-            this.cmb_bus.Location = new System.Drawing.Point(401, 33);
+            this.cmb_bus.Location = new System.Drawing.Point(498, 7);
             this.cmb_bus.Name = "cmb_bus";
-            this.cmb_bus.Size = new System.Drawing.Size(285, 23);
+            this.cmb_bus.Size = new System.Drawing.Size(260, 23);
             this.cmb_bus.TabIndex = 37;
             this.cmb_bus.SelectedIndexChanged += new System.EventHandler(this.cmb_bus_SelectedIndexChanged);
             // 
@@ -370,6 +425,8 @@ namespace Project
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.btn_hdel);
+            this.tabPage3.Controls.Add(this.btn_hedit);
             this.tabPage3.Controls.Add(this.label11);
             this.tabPage3.Controls.Add(this.cmb_hprice);
             this.tabPage3.Controls.Add(this.label26);
@@ -390,6 +447,30 @@ namespace Project
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Add Hotel";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // btn_hdel
+            // 
+            this.btn_hdel.BackColor = System.Drawing.Color.Yellow;
+            this.btn_hdel.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hdel.Location = new System.Drawing.Point(104, 210);
+            this.btn_hdel.Name = "btn_hdel";
+            this.btn_hdel.Size = new System.Drawing.Size(67, 28);
+            this.btn_hdel.TabIndex = 52;
+            this.btn_hdel.Text = "Delete";
+            this.btn_hdel.UseVisualStyleBackColor = false;
+            this.btn_hdel.Click += new System.EventHandler(this.btn_hdel_Click);
+            // 
+            // btn_hedit
+            // 
+            this.btn_hedit.BackColor = System.Drawing.Color.Yellow;
+            this.btn_hedit.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_hedit.Location = new System.Drawing.Point(181, 210);
+            this.btn_hedit.Name = "btn_hedit";
+            this.btn_hedit.Size = new System.Drawing.Size(67, 28);
+            this.btn_hedit.TabIndex = 51;
+            this.btn_hedit.Text = "Edit";
+            this.btn_hedit.UseVisualStyleBackColor = false;
+            this.btn_hedit.Click += new System.EventHandler(this.btn_hedit_Click);
             // 
             // label11
             // 
@@ -533,6 +614,8 @@ namespace Project
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.tabPage4.Controls.Add(this.btn_bdel);
+            this.tabPage4.Controls.Add(this.btn_bedit);
             this.tabPage4.Controls.Add(this.label23);
             this.tabPage4.Controls.Add(this.dgv_bus);
             this.tabPage4.Controls.Add(this.btn_badd);
@@ -548,6 +631,30 @@ namespace Project
             this.tabPage4.Size = new System.Drawing.Size(779, 255);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Add Bus";
+            // 
+            // btn_bdel
+            // 
+            this.btn_bdel.BackColor = System.Drawing.Color.Yellow;
+            this.btn_bdel.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bdel.Location = new System.Drawing.Point(133, 187);
+            this.btn_bdel.Name = "btn_bdel";
+            this.btn_bdel.Size = new System.Drawing.Size(67, 28);
+            this.btn_bdel.TabIndex = 54;
+            this.btn_bdel.Text = "Delete";
+            this.btn_bdel.UseVisualStyleBackColor = false;
+            this.btn_bdel.Click += new System.EventHandler(this.btn_bdel_Click);
+            // 
+            // btn_bedit
+            // 
+            this.btn_bedit.BackColor = System.Drawing.Color.Yellow;
+            this.btn_bedit.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_bedit.Location = new System.Drawing.Point(210, 187);
+            this.btn_bedit.Name = "btn_bedit";
+            this.btn_bedit.Size = new System.Drawing.Size(67, 28);
+            this.btn_bedit.TabIndex = 53;
+            this.btn_bedit.Text = "Edit";
+            this.btn_bedit.UseVisualStyleBackColor = false;
+            this.btn_bedit.Click += new System.EventHandler(this.btn_bedit_Click);
             // 
             // label23
             // 
@@ -567,6 +674,7 @@ namespace Project
             this.dgv_bus.Name = "dgv_bus";
             this.dgv_bus.Size = new System.Drawing.Size(378, 218);
             this.dgv_bus.TabIndex = 47;
+            this.dgv_bus.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_bus_CellContentClick);
             // 
             // btn_badd
             // 
@@ -645,6 +753,8 @@ namespace Project
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.btn_mdel);
+            this.tabPage5.Controls.Add(this.btn_medit);
             this.tabPage5.Controls.Add(this.label27);
             this.tabPage5.Controls.Add(this.txt_mprice);
             this.tabPage5.Controls.Add(this.label7);
@@ -663,6 +773,30 @@ namespace Project
             this.tabPage5.TabIndex = 3;
             this.tabPage5.Text = "Add Meal";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // btn_mdel
+            // 
+            this.btn_mdel.BackColor = System.Drawing.Color.Yellow;
+            this.btn_mdel.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_mdel.Location = new System.Drawing.Point(137, 218);
+            this.btn_mdel.Name = "btn_mdel";
+            this.btn_mdel.Size = new System.Drawing.Size(67, 28);
+            this.btn_mdel.TabIndex = 54;
+            this.btn_mdel.Text = "Delete";
+            this.btn_mdel.UseVisualStyleBackColor = false;
+            this.btn_mdel.Click += new System.EventHandler(this.btn_mdel_Click);
+            // 
+            // btn_medit
+            // 
+            this.btn_medit.BackColor = System.Drawing.Color.Yellow;
+            this.btn_medit.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_medit.Location = new System.Drawing.Point(214, 218);
+            this.btn_medit.Name = "btn_medit";
+            this.btn_medit.Size = new System.Drawing.Size(67, 28);
+            this.btn_medit.TabIndex = 53;
+            this.btn_medit.Text = "Edit";
+            this.btn_medit.UseVisualStyleBackColor = false;
+            this.btn_medit.Click += new System.EventHandler(this.btn_medit_Click);
             // 
             // label27
             // 
@@ -700,6 +834,7 @@ namespace Project
             this.dgv_meal.Name = "dgv_meal";
             this.dgv_meal.Size = new System.Drawing.Size(378, 218);
             this.dgv_meal.TabIndex = 46;
+            this.dgv_meal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_meal_CellContentClick);
             // 
             // txt_mdesc
             // 
@@ -784,6 +919,8 @@ namespace Project
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.btn_pdel);
+            this.tabPage6.Controls.Add(this.btn_pedit);
             this.tabPage6.Controls.Add(this.label28);
             this.tabPage6.Controls.Add(this.txt_pprice);
             this.tabPage6.Controls.Add(this.label29);
@@ -802,6 +939,30 @@ namespace Project
             this.tabPage6.TabIndex = 4;
             this.tabPage6.Text = "Add Package";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // btn_pdel
+            // 
+            this.btn_pdel.BackColor = System.Drawing.Color.Yellow;
+            this.btn_pdel.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pdel.Location = new System.Drawing.Point(72, 180);
+            this.btn_pdel.Name = "btn_pdel";
+            this.btn_pdel.Size = new System.Drawing.Size(67, 28);
+            this.btn_pdel.TabIndex = 66;
+            this.btn_pdel.Text = "Delete";
+            this.btn_pdel.UseVisualStyleBackColor = false;
+            this.btn_pdel.Click += new System.EventHandler(this.btn_pdel_Click);
+            // 
+            // btn_pedit
+            // 
+            this.btn_pedit.BackColor = System.Drawing.Color.Yellow;
+            this.btn_pedit.Font = new System.Drawing.Font("Rockwell", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_pedit.Location = new System.Drawing.Point(149, 180);
+            this.btn_pedit.Name = "btn_pedit";
+            this.btn_pedit.Size = new System.Drawing.Size(67, 28);
+            this.btn_pedit.TabIndex = 65;
+            this.btn_pedit.Text = "Edit";
+            this.btn_pedit.UseVisualStyleBackColor = false;
+            this.btn_pedit.Click += new System.EventHandler(this.btn_pedit_Click);
             // 
             // label28
             // 
@@ -839,6 +1000,7 @@ namespace Project
             this.dgv_pkg.Name = "dgv_pkg";
             this.dgv_pkg.Size = new System.Drawing.Size(416, 218);
             this.dgv_pkg.TabIndex = 61;
+            this.dgv_pkg.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_pkg_CellContentClick);
             // 
             // cmb_pplace
             // 
@@ -952,48 +1114,6 @@ namespace Project
             this.label5.TabIndex = 14;
             this.label5.Text = "All rights reserved 2022.";
             // 
-            // cmb_hotel
-            // 
-            this.cmb_hotel.FormattingEnabled = true;
-            this.cmb_hotel.Items.AddRange(new object[] {
-            ""});
-            this.cmb_hotel.Location = new System.Drawing.Point(403, 151);
-            this.cmb_hotel.Name = "cmb_hotel";
-            this.cmb_hotel.Size = new System.Drawing.Size(285, 23);
-            this.cmb_hotel.TabIndex = 44;
-            this.cmb_hotel.SelectedIndexChanged += new System.EventHandler(this.cmb_hotel_SelectedIndexChanged);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.Location = new System.Drawing.Point(402, 127);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(76, 16);
-            this.label32.TabIndex = 43;
-            this.label32.Text = "Select Hotel";
-            // 
-            // cmb_meal
-            // 
-            this.cmb_meal.FormattingEnabled = true;
-            this.cmb_meal.Items.AddRange(new object[] {
-            ""});
-            this.cmb_meal.Location = new System.Drawing.Point(403, 205);
-            this.cmb_meal.Name = "cmb_meal";
-            this.cmb_meal.Size = new System.Drawing.Size(285, 23);
-            this.cmb_meal.TabIndex = 46;
-            this.cmb_meal.SelectedIndexChanged += new System.EventHandler(this.cmb_meal_SelectedIndexChanged);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Rockwell", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(402, 181);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(74, 16);
-            this.label35.TabIndex = 45;
-            this.label35.Text = "Select Meal";
-            // 
             // AdminGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1008,6 +1128,7 @@ namespace Project
             this.Controls.Add(this.pictureBox1);
             this.Name = "AdminGUI";
             this.Text = "AdminGUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AdminGUI_FormClosing);
             this.Load += new System.EventHandler(this.AdminGUI_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1114,7 +1235,15 @@ namespace Project
         private System.Windows.Forms.DataGridView dgv_bookings;
         private System.Windows.Forms.ComboBox cmb_hotel;
         private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.ComboBox cmb_meal;
-        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Button btn_hdel;
+        private System.Windows.Forms.Button btn_hedit;
+        private System.Windows.Forms.Button btn_bdel;
+        private System.Windows.Forms.Button btn_bedit;
+        private System.Windows.Forms.Button btn_mdel;
+        private System.Windows.Forms.Button btn_medit;
+        private System.Windows.Forms.Button btn_pdel;
+        private System.Windows.Forms.Button btn_pedit;
+        private System.Windows.Forms.Button btn_tdel;
+        private System.Windows.Forms.Button btn_tedit;
     }
 }

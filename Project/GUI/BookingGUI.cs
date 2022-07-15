@@ -23,6 +23,7 @@ namespace Project
         private UserGUI ud;
         private RecieptGUI reciept;
         int count = 0;
+        
         public BookingGUI()
         {
             InitializeComponent();
@@ -31,6 +32,7 @@ namespace Project
             bdto = new BookingDTO();
             bl = new BookingBL();
             reciept = new RecieptGUI();
+            btn_reciept.Enabled = false;
         }
 
         private void BookingGUI_Load(object sender, EventArgs e)
@@ -78,6 +80,7 @@ namespace Project
             bdto.Paymentid = lbl_amt.Text;
 
             bl.CreateBooking(bdto);
+            btn_reciept.Enabled = true;
         }
 
         private void btn_calculate_Click(object sender, EventArgs e)
@@ -128,7 +131,35 @@ namespace Project
 
         private void btn_reciept_Click(object sender, EventArgs e)
         {
-            reciept.ShowDialog();
+            BookingDTO dto = new BookingDTO();
+
+            dto.Tourid = lbl_tid.Text;
+            dto.Userid = label10.Text;
+            BookingDTO dddto = new BookingDTO();
+            dddto=bl.getReciept(dto);
+
+            reciept.lbl_bid.Text = dddto.Bookingid;
+            reciept.lbl_tid.Text = dddto.Tourid;
+            reciept.lbl_uid.Text = dddto.Userid;
+            reciept.lbl_seats.Text = dddto.Seats.ToString();
+            reciept.lbl_amt.Text = dddto.Paymentid;
+            reciept.Show(this);
+            this.Hide();
+        }
+
+        private void BookingGUI_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                if (MessageBox.Show("Are you sure you want to exit!!!", "Form is closing", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.No)
+
+                {
+                    e.Cancel = true;
+                }
+                else
+                    this.Owner.Show();
+
+            }
         }
     }
 }

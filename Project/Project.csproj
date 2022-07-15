@@ -129,6 +129,9 @@
     <EmbeddedResource Include="GUI\UserGUI.resx">
       <DependentUpon>UserGUI.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\WrongUserGUI.resx">
+      <DependentUpon>WrongUserGUI.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="obj\Debug\Project.AdminGUI.resources" />
     <EmbeddedResource Include="obj\Debug\Project.BookingGUI.resources" />
     <EmbeddedResource Include="obj\Debug\Project.LoginSignupGUI.resources" />

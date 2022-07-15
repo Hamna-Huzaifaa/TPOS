@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Project.DL
 {
@@ -38,11 +39,12 @@ namespace Project.DL
                    
 
                 int rowAffected = com.ExecuteNonQuery();
-                }
+                MessageBox.Show("Tour booked Successfully", "Tour Booked", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
                 catch (SqlException ex)
                 {
-                    throw ex;
-                }
+                MessageBox.Show(ex.Message);
+            }
                 finally
                 {
                     db.Con.Close();
@@ -160,17 +162,19 @@ namespace Project.DL
                 db.Con.Close();
             }
         }
-        public BookingDTO getRecieptFromDB()
+        public BookingDTO getRecieptFromDB(BookingDTO dto)
         {
             BookingDTO package = new BookingDTO();
             //int package;
             try
             {
                 db.Con.Open();
-                string queryString = "SELECT bookingid,tourid,userid,seats,payment FROM booking";
+                string queryString = "SELECT bookingid,tourid,userid,seats,payment FROM booking where tourid = @tourid and userid = @userid";
                 SqlCommand com = new SqlCommand(queryString, db.Con);
-
+                com.Parameters.AddWithValue("@tourid", dto.Tourid);
+                com.Parameters.AddWithValue("@userid", dto.Userid);
                 SqlDataReader reader = com.ExecuteReader();
+               
                 while (reader.Read())
                 {
 

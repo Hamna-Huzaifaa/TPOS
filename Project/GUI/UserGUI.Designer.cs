@@ -157,7 +157,8 @@ namespace Project
             this.Controls.Add(this.label13);
             this.Controls.Add(this.pictureBox4);
             this.Name = "UserGUI";
-            this.Text = "Login";
+            this.Text = "UserGUI";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.UserGUI_FormClosing);
             this.Load += new System.EventHandler(this.User_load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
